@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamatha portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        *
+        {
+            margin:0 ;
+            padding: 0;
+        }
+        body
+        {
+            background-color:white;
+            color: aliceblue;
+            font-family: 'poppins';
+        }
+        nav
+        {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100px;
+            background-color:black;
+        }
+       nav ul{
+        display: flex;
+        justify-content: center;
+       }
+       nav ul li{
+        list-style: none;
+        margin: 0 23px;
+        font-size: 1.5rem;
+       }
+       nav ul li {
+       text-decoration: none;
+       color: white;
+       }
+       nav ul li a{
+        text-decoration: none;
+        color: white;
+       }
+       nav ul li a:hover{
+        color:orange;
+        font-size: 2rem;
+       }
+       .left
+       {
+        font-size: 3rem;
+       }
+       .firstsection
+       {
+        display: flex;
+        justify-content: space-around;
+        margin: 23px 0;
+        align-items: center;
+       }
+       .firstsection div{
+        width: 30%;
+       }
+       .leftsection
+       {
+        font-size: 4rem;
+        margin: 70px 0;
+        color: black;
+         
+       }
+       .rightsection img
+       {
+        margin: 50px 0;
+        width: 150%;
+       }
+       .purple
+       {
+        color:orange;
+        margin-right: 15px;
+       }
+       #element{
+        color: orange;
+       }
+       #about {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px auto;
+    max-width: 100vw;
+    font-size: 1.4rem;
+    background-color: black;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.rightsec {
+    max-width: 50%;
+}
+
+.rightsec button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: orange;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.rightsec button:hover {
+    background-color: white;
+    color: orange;
+    transition: 0.3s ease;
+}
+html {
+  scroll-behavior: smooth;
+}
+.leftsection .purple {
+  white-space: nowrap; 
+}
+.services {
+  background-color: white;
+  color: #000;
+  padding: 50px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 4rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.roadmap {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.step {
+  background-color: white;
+  padding: 20px;
+  border-left: 5px solid orange;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.projects {
+  background-color: white;
+  color: #000;
+  padding: 50px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 4rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.project {
+  background-color: white;
+  padding: 20px;
+  border-left: 5px solid orange;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  width: 45%; /* Adjust width to control how many projects per row */
+  box-sizing: border-box;
+}
+
+.project img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.project h3 {
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: orange;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.contact-form {
+  background-color:white;
+  padding: 40px;
+  margin: 50px auto;
+  border-radius: 8px;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(24, 23, 23, 0.1);
+}
+
+.contact-form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #e68900;
+}
+    
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left"><span class="purple">Mamatha</span>Sivarapu</div>
+            <div class="right">
+                <ul>
+                    <li><a href="">Home</li>
+                    <li><a href="#about">About Me</a></li>
+                     <li><a href="#services">Services</a></li>
+                     <li><a href="#projects">Projects</a></li>
+                     <li><a href="#contact-form">ContactMe</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstsection">
+            <div  class="leftsection">
+                Hi, Iam<span class="purple"> MAMATHA SIVARAPU</span><br>
+             Iam a passionate<br>
+            <span id="element"></span>
+            </div>
+            <div class="rightsection">
+                <img src="download.jpeg" alt="profile"class="round img">
+            </div>
+        </section>
+        <section id="about">
+            <div > <h1 style="font-size: 5rem;color: orange;">About Me</h1></div>
+            <div class="rightsec">
+                <p>
+                    I am a third-year B.Tech student passionate about becoming a front-end developer. I enjoy creating clean, responsive websites and have built projects like Namaste Nomad and MLRIT Sports Hub. I'm constantly learning HTML, CSS, and JavaScript, while also improving my Java and Python skills. I regularly practice Data Structures and Algorithms to strengthen my logic and problem-solving abilities for placements. Despite managing college and a part-time job, I stay committed to daily learning. I believe in consistency, self-improvement, and hard work. My goal is to become a skilled software developer and make a meaningful impact in the tech world.
+                </p>
+                <button>Download Resume</button>
+            </div>
+        </section>
+        <section class="services" id="services">
+            <h2 class="section-title">My Roadmap / Services</h2>
+            <div class="roadmap">
+              <div class="step">
+                <h3>HTML & CSS</h3>
+                <p>Started with basics of HTML and CSS to build static websites.</p>
+              </div>
+              <div class="step">
+                <h3>JavaScript</h3>
+                <p>Learned JavaScript to add interactivity and logic to web pages.</p>
+              </div>
+              <div class="step">
+                <h3>Projects</h3>
+                <p>Built Namaste Nomad and MLRIT Sports Hub to apply knowledge.</p>
+              </div>
+              <div class="step">
+                <h3>Data Structures & Algorithms</h3>
+                <p>Practicing DSA daily to improve problem-solving skills.</p>
+              </div>
+            </div>
+          </section>
+          <section class="projects" id="projects">
+            <h2 class="section-title">My Projects</h2>
+            <div class="project-list">
+              <div class="project">
+                <img src="p1.png" alt="Namaste Nomad Project" class="project-image">
+                <h3>Namaste Nomad</h3>
+                <p>A travel website where users can book destinations, explore historical places, and manage their trips.</p>
+                <a href="#" class="btn">View Project</a>
+              </div>
+              <div class="project">
+                <img src="p2.png" alt="MLRIT Sports Hub" class="project-image">
+                <h3>MLRIT Sports Hub</h3>
+                <p>A sports slot booking platform for students and visitors to reserve sports grounds in MLRIT college.</p>
+                <a href="#" class="btn">View Project</a>
+              </div>
+              <!-- Add more projects similarly -->
+            </div>
+          </section>
+          <section class="contact-form" id="contact-form">
+            <h2 style="font-size: 3 rem;color: black;"> Contact Me</h2>
+        
+                <form action="#" method="POST">
+                    <label for="name">Your Name:</label>
+                    <input type="text" placeholder="Your name" required>
+                    <label for="email">Your Email:</label>
+                    <input type="email"  placeholder="Your email" required>
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Write your message here" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                
+            </form>
+
+          </section>
+
+          
+          
+        
+       
+    </main>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+     <!-- Load library from the CDN -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <!-- Setup and start animation! -->
+  <script>
+    var typed = new Typed('#element', {
+      strings: ['Webdeveloper', 'UI/Ux Designer','Video Editor','Web Designer'],
+      typeSpeed: 50,
+    });
+  </script>
+    
+</body>
+</html>
