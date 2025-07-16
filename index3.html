@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Interactive Web Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+body {
+    background-color: #f0f4f8;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(90deg, #110222, #2575fc);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+.nav ul li {
+    cursor: pointer;
+    font-weight: bold;
+    color: rgb(171, 171, 23);
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.quiz-container, .gallery, .todo {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px;
+    width: 300px;
+    height: 450px;
+    overflow-y: auto;
+}
+
+h2, h1 {
+    color: #6a11cb;
+    text-align: center;
+}
+
+button {
+    padding: 8px 15px;
+    background: #2575fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #6a11cb;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #e3f2fd;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 4px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    background-color: #000;
+    margin-bottom: 15px;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.carousel img.active {
+    display: block;
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.6);
+    border: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+input[type="text"] {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🌟 My Interactive Web Page 🌟</h1>
+    <div class="nav">
+        <ul>
+            <li>Home</li>
+            <li>Quiz</li>
+            <li>Gallery</li>
+            <li>To-Do</li>
+        </ul>
+    </div>
+</header>
+
+<div class="container">
+    <div class="quiz-container">
+        <h2 id="question">Loading question...</h2>
+        <ul class="options">
+          <li><input type="radio" name="answer" value="a" id="a"> <label for="a" id="a_text"></label></li>
+          <li><input type="radio" name="answer" value="b" id="b"> <label for="b" id="b_text"></label></li>
+          <li><input type="radio" name="answer" value="c" id="c"> <label for="c" id="c_text"></label></li>
+          <li><input type="radio" name="answer" value="d" id="d"> <label for="d" id="d_text"></label></li>
+        </ul>
+        <button onclick="submitAnswer()">Submit</button>
+        <p id="score"></p>
+      </div>
+
+      <div class="gallery">
+        <h1>Gallery</h1>
+        <div class="carousel">
+            <button class="btn left-btn" onclick="showPrevious()">❮</button>
+            <button class="btn right-btn" onclick="showNext()">❯</button>
+
+            <img src="p1.jpeg" class="active" />
+            <img src="p2.png" />
+            <img src="p1.png" />
+            <img src="p2.jpeg" />
+        </div>
+      </div>
+
+      <div class="todo">
+        <h1>To-Do List</h1>
+        <input type="text" id="itemInput" placeholder="Enter task name" />
+        <button onclick="addItem()">Add</button>
+        <ul id="todoList"></ul>
+      </div>
+</div>
+
+<script>
+const quizData = [
+  {
+    question: "What does HTML stand for?",
+    a: "Hyper Trainer Marking Language",
+    b: "Hyper Text Marketing Language",
+    c: "Hyper Text Markup Language",
+    d: "Hyper Text Markup Leveler",
+    correct: "c"
+  },
+  {
+    question: "Which language runs in a web browser?",
+    a: "Java",
+    b: "C",
+    c: "Python",
+    d: "JavaScript",
+    correct: "d"
+  },
+  {
+    question: "What does CSS stand for?",
+    a: "Computer Style Sheets",
+    b: "Creative Style Sheets",
+    c: "Cascading Style Sheets",
+    d: "Colorful Style Sheets",
+    correct: "c"
+  },
+  {
+    question: "Which is not a JavaScript data type?",
+    a: "Boolean",
+    b: "Float",
+    c: "Number",
+    d: "Undefined",
+    correct: "b"
+  }
+];
+
+let currentQuiz = 0;
+let score = 0;
+
+const questionEl = document.getElementById('question');
+const answerEls = document.querySelectorAll('input[name="answer"]');
+const a_text = document.getElementById('a_text');
+const b_text = document.getElementById('b_text');
+const c_text = document.getElementById('c_text');
+const d_text = document.getElementById('d_text');
+const scoreEl = document.getElementById('score');
+
+loadQuiz();
+
+function loadQuiz() {
+  deselectAnswers();
+  const currentData = quizData[currentQuiz];
+  questionEl.innerText = currentData.question;
+  a_text.innerText = currentData.a;
+  b_text.innerText = currentData.b;
+  c_text.innerText = currentData.c;
+  d_text.innerText = currentData.d;
+}
+
+function getSelected() {
+  let answer = undefined;
+  answerEls.forEach(el => {
+    if (el.checked) {
+      answer = el.value;
+    }
+  });
+  return answer;
+}
+
+function deselectAnswers() {
+  answerEls.forEach(el => el.checked = false);
+}
+
+function submitAnswer() {
+  const answer = getSelected();
+  if (answer) {
+    if (answer === quizData[currentQuiz].correct) {
+      score++;
+    }
+    currentQuiz++;
+    if (currentQuiz < quizData.length) {
+      loadQuiz();
+    } else {
+      document.querySelector(".quiz-container").innerHTML = `
+        <h2>You answered ${score} out of ${quizData.length} correctly!</h2>
+        <button onclick="location.reload()">Reload</button>
+      `;
+    }
+  } else {
+    alert("Please select an answer!");
+  }
+}
+
+const images = document.querySelectorAll(".carousel img");
+let currentIndex = 0;
+
+function showImage(index) {
+  images.forEach((img, i) => {
+    img.classList.toggle("active", i === index);
+  });
+}
+
+function showNext() {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+}
+
+function showPrevious() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
+}
+
+function addItem() {
+  const input = document.getElementById("itemInput");
+  const itemText = input.value.trim();
+
+  if (itemText !== "") {
+    const list = document.getElementById("todoList");
+    const listItem = document.createElement("li");
+    listItem.textContent = itemText;
+    list.appendChild(listItem);
+    input.value = "";
+  } else {
+    alert("Please enter a task.");
+  }
+}
+</script>
+</body>
+</html>

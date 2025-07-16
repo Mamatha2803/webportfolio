@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mood Booster Page</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7fa;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    color: #00796b;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  img {
+    width: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  .link {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #26a69a;
+    color: white;
+    border-radius: 8px;
+  }
+
+  .link:hover {
+    background-color: #00897b;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    background-color: #ff7043;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #f4511e;
+  }
+
+  #quote {
+    font-style: italic;
+    color: #555;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Welcome to the Mood Booster!</h1>
+<p>Feeling low? Here’s something to lift your spirits. 🌟</p>
+
+<img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif" alt="Happy Image" />
+
+<p>Choose what you'd like to do:</p>
+
+<a class="link" href="https://www.youtube.com/watch?v=2Vv-BfVoq4g" target="_blank">Listen to Music</a>
+<a class="link" href="https://www.boredpanda.com/positive-news/" target="_blank">Read Positive News</a>
+<a class="link" href="https://www.headspace.com/" target="_blank">Meditate</a>
+
+<br />
+
+<button onclick="showQuote()">Click Me for a Quote!</button>
+
+<div id="quote"></div>
+
+<script>
+const quotes = [
+  "Keep your face always toward the sunshine — and shadows will fall behind you.",
+  "You are capable of amazing things.",
+  "Believe you can and you're halfway there.",
+  "Be the reason someone smiles today.",
+  "Every day is a fresh start."
+];
+
+function showQuote() {
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  document.getElementById("quote").innerText = randomQuote;
+}
+</script>
+
+</body>
+</html>
